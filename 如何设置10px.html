@@ -1,0 +1,38 @@
+<!-- Chrome中支持的最小fontsize是12px -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .font {
+      font-size: 20px;
+
+      /* 水平方向, 垂直方向都缩放到原本的一半 */
+      transform: scale(0.5);
+      /* 其他: scaleX(仅水平方向缩放); scaleY; scaleZ */
+
+      /* 缩放后, 被缩放的标签仍会占据缩放前的空间 */
+      /* 并且, transform都将以元素的基点为变换的参考点, 默认情况下基点为元素中心点 */
+      /* 因此scale变换后, 元素位置将在中间, 上下左右都出现较大间距, 需要调整位置 */
+
+      /* 通过transform-origin设置元素的基点位置, 元素将沿着基点进行变换 */
+      /* 属性值可以是百分比, px, em等具体值, 也可以是top left right bottom center */
+      transform-origin: 0% 0%;
+
+      /* 默认为transform-origin: 50% 50%; 即元素的中心点 */
+      /* 0% 0% 意味着以元素的左上角的点为基点 */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="font">I'm 10 px....</div>
+
+</body>
+
+</html>
