@@ -3,4 +3,5 @@
 - AJax请求方式
 - 如何设置字号为10px
 - 并发控制
-- Generator与Async 
+- Generator与Async
+- ArrayFlattern（数组拍平）
