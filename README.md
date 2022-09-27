@@ -5,3 +5,4 @@
 - 并发控制
 - Generator与Async
 - ArrayFlattern（数组拍平）
+- 使用timeout实现interval
