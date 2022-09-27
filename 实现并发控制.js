@@ -4,36 +4,32 @@ sendData(ids, 3)
 
 // n表示同时发送的条数
 function sendData (ids, n) {
-  // 补全你的代码
   let pool = []
   let result = []
-  const length = ids.length
+  let len = ids.length
   let count = 0
 
-  // 为每次任务注册then回调
-  let run = (task) => {
-    return task.then((res) => {
-      result[res[0]] = res[1] // 将结果以id为下标放入result数组
-      pool.splice(pool.indexOf(task), 1)
-      count++
-
-      if (ids.length) { // 判断待完成任务列表是否还有任务, 有则放入池子
-        const next = upload(ids.shift())
-        pool.push(next)
-        run(next)
-      }
-
-      if (count === length) { // 任务全部完成, 输出结果数组
-        console.log(result)
-      }
-    })
-  }
-
-
-  for (let i = 0; i < n; i++) {
+  // 先把任务池填满
+  for(let i = 0;i<n;i++){
     const task = upload(ids.shift())
     pool.push(task)
     run(task)
+  }
+  //为每个任务设置完成后的回调
+  function run(task){
+    return task.then((res)=>{
+        result[res[0]] = res[1]
+        count++
+        pool.splice(pool.indexOf(task),1)
+      // 任务队列中是否还有没放入池中的任务
+        if(ids.length){
+            const next = upload(ids.shift())
+            pool.push(next)
+            run(next)
+        }
+      // 任务完成后计数
+        if(count === len) console.log(result);
+    })
   }
 }
 
@@ -47,5 +43,4 @@ function upload (id) {
       return resolve([id, isSuccess])
     }, id * 1000)
   })
-
 }
