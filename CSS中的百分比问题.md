@@ -9,6 +9,7 @@
 为一个元素的border-radius定义的百分比值，参照物是这个元素自身的尺寸。也就是说，假如这个元素宽是60px，高是50px（border-box的尺寸），那么border-radius:50%的结果等同于border-radius:30px/20px;。
 ## - background-position
 ![image](https://user-images.githubusercontent.com/56546775/193801566-98955b2e-1509-46fb-905b-d63b9d3d1f24.png)
+
 background-position的百分比值，取的参照是一个减法计算值，由放置背景图的区域尺寸，减去背景图的尺寸得到，可以为负值。对照上面的示例，思考一下，应该可以感受到，以这个减法计算值为参照的话，正好可以符合我们感官上对背景图位置的理解。
 ## - font-size
 参照是直接父元素的font-size。例如，一个元素的直接父元素的font-size是14px，无论这个是直接定义的，还是继承得到的，当该元素定义font-size:100%;，获得的效果就是font-size:14px
