@@ -16,3 +16,4 @@
 - CSS画个三角形
 - CSS中link导入与@import导入的区别
 - [CSS Grid布局](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- 单例模式
