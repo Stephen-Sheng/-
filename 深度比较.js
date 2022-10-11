@@ -13,7 +13,7 @@ function isEqual(obj1,obj2){
   return true
 
   function isObj(obj){
-    if(obj !== "object" || obj == null) return false
+    if(typeof obj !== "object" || obj == null) return false
     return true
   }
 }
