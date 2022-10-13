@@ -25,3 +25,4 @@
 - 闭包
 - call & apply & bind
 - H5新特性
+- Diff算法
