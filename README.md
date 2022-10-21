@@ -26,3 +26,4 @@
 - call & apply & bind
 - H5新特性
 - Diff算法
+- JS中的隐式类型转换
