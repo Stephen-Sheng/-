@@ -14,5 +14,11 @@ let obj.__proto__ = Base.prototype
 ```
 Base.call(obj)
 ```
-
 一个崭新的实例诞生了！
+```
+function myNew(Fn,...args){
+    const obj = Object.create(Fn.prototype)
+    Fn.apply(obj,args)
+    return obj
+}
+```

@@ -2,7 +2,7 @@
  * @Author: Yutong Sheng
  * @Date: 2022-10-28 15:21:36
  * @Last Modified by: Yutong Sheng
- * @Last Modified time: 2022-11-02 22:07:12
+ * @Last Modified time: 2022-11-07 11:29:06
  */
 function deepClone(obj) {
   if (typeof obj !== "object" || obj == null) return obj;
@@ -195,7 +195,28 @@ const CreateSingleton = (function(){
     return instance = this
   }
 })();
-const obj = {x:1,y:2}
-for(let key of Reflect.ownKeys(obj)){
-  console.log(key);
-}
+
+var spiralOrder = function(n) {
+  let res = new Array(n).fill().map(() => new Array(n).fill(0));
+  const rows = n, columns = n;
+  let left = 0, right = columns - 1, top = 0, bottom = rows - 1;
+  while (left <= right && top <= bottom) {
+      for (let column = left; column <= right; column++) {
+          res[top][column] = 1;
+      }
+      for (let row = top + 1; row <= bottom; row++) {
+          res[row][right] = 1;
+      }
+      if (left < right && top < bottom) {
+          for (let column = right - 1; column > left; column--) {
+              res[bottom][column] = 1;
+          }
+          for (let row = bottom; row > top; row--) {
+              res[row][left] = 1;
+          }
+      }
+      [left, right, top, bottom] = [left + 2, right - 2, top + 2, bottom - 2];
+  }
+  return res;
+};
+console.log(spiralOrder(10))
